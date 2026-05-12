@@ -1,5 +1,11 @@
+body{
+  background-image: url("../assets/tangerine-newt-RgT22Ixcq4Y-unsplash.jpg") ;
+  background-size: contain;
+ 
+  background-position: center;
+}
 .container {
-  max-width: 500px;
+  max-width: 600px;
   margin: 40px auto;
   padding: 30px;
   background-color: #D9CDBA;

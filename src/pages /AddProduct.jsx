@@ -14,10 +14,9 @@ const [addItem, setAddItem] = useState({
     img: "",
 })
 
-  function handleChange(e) {
-    const { name, value } = e.target
-    setAddItem(prev => ({ ...prev, [name]: value }))
-  }
+ function handleChange(e) {
+  setAddItem(prev => ({ ...prev, [e.target.name]: e.target.value }))
+}
 
 async function handleAddItem (e){
  e.preventDefault()
@@ -81,7 +80,7 @@ async function handleAddItem (e){
         </div>
 
         <div className="form-group">
-          <label className="form-label">Price</label>
+          <label className="form-label">Price (Kshs)</label>
           <input
             type="number"
             name="price"
