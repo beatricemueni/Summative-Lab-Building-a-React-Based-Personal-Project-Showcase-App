@@ -1,5 +1,5 @@
 import React from 'react'
-import { Navigate, useNavigate } from 'react-router-dom'
+import { Link, useNavigate, } from 'react-router-dom'
 import { useState } from 'react'
 import '../css/Form.css';
 
@@ -47,6 +47,17 @@ async function handleAddItem (e){
 
 
   return (
+    <>
+   <header className="nav-header">
+  <div className="nav-container">
+    <div className="header-logo">FoodHub</div>
+    <nav className="nav">
+      <Link to="/" className="nav-link">Home</Link>
+      <Link to="/about" className="nav-link">About</Link>
+      <Link to="/products" className="nav-link">Products</Link>
+    </nav>
+  </div>
+</header>
      <div className="container">
       <h2 >Add New Product</h2>
       <p >Fill in the details below to add a new product to our catalog</p>
@@ -78,7 +89,7 @@ async function handleAddItem (e){
             required
           />
         </div>
-
+        
         <div className="form-group">
           <label className="form-label">Price (Kshs)</label>
           <input
@@ -139,6 +150,7 @@ async function handleAddItem (e){
 
       </form>
     </div>
+    </>
   )
 }
 
