@@ -15,10 +15,12 @@ function App() {
   return (
     <BrowserRouter>
     <Routes>
-      <Route path = "/home" element ={<Home/>}></Route>
+      <Route path = "/" element ={<Home/>}></Route>
+      <Route path = "/about" element ={<About/>}></Route>
       <Route path = "/login" element ={<Login/>}></Route>
-      <Route path='/products' element={<Products/>}></Route>
-      <Route path='/about'element={<About/>}></Route>
+      <Route path = "/addprodcut" element ={<AddProduct/>}></Route>
+      <Route path = "/products" element ={<Products/>}></Route>
+
     </Routes>
     </BrowserRouter>
 
@@ -26,3 +28,4 @@ function App() {
 }
 
 export default App
+
