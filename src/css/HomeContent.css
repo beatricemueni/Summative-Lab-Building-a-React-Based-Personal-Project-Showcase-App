@@ -1,27 +1,113 @@
 @import 'tailwindcss';
 
-h1{
-
+h1 {
   font-family: "Lato", sans-serif;
   font-weight: 900;
-  font-size:50px;
+  font-size: 50px;
   font-style: normal;
-
 }
 
-span{
-    font-family: "Lato", sans-serif;
-    font-weight: 900;
-    font-size:50px;
-    font-style: oblique;
-    color:#FFD580;
-
+span {
+  font-family: "Lato", sans-serif;
+  font-weight: 900;
+  font-size: 50px;
+  font-style: oblique;
+  color: #FFD580;
 }
 
-.font-styling h3{
-    font-family: "Lato", sans-serif;
-    font-weight: 300;
-    font-size:30px;
-    font-style: oblique;
+.font-styling h3 {
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  font-size: 30px;
+  font-style: oblique;
+}
 
+.home-container {
+  height: 100vh;
+  background-image: url('../assets/tangerine-newt-RgT22Ixcq4Y-unsplash.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  z-index: 0;
+  display: flex;
+  justify-content: center; /* center vertically */
+  align-items: center;     /* center horizontally */
+}
+
+/* Overlay blur */
+.overlay {
+  position: absolute;
+  top: 0; right: 0; left: 0; bottom: 0;
+  backdrop-filter: blur(50px);
+  z-index: 1;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* center children horizontally */
+  justify-content: center; /* center children vertically */
+}
+
+/* Title */
+.home-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+}
+
+.highlight {
+  color: #f97316; /* orange accent */
+}
+
+/* Subtitle */
+.home-subtitle {
+  font-size: 1rem;
+  color: #374151;
+  margin-bottom: 2rem;
+}
+
+/* Buttons */
+.home-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.home-btn {
+  background-color: #f97316; /* orange base */
+  color: #fff;
+  font-weight: 600;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.home-btn:hover {
+  box-shadow: 0 0 8px rgba(249, 115, 22, 0.6); /* subtle glow */
+  transform: translateY(-2px); /* lift effect */
+}
+
+/* Hero image */
+.hero-image {
+  max-width: 600px;
+  height: 300px;
+  margin: 2rem auto -1rem;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+.hero-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
 }
