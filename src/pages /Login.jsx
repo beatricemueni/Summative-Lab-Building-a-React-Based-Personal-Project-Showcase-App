@@ -1,16 +1,4 @@
 
-import React from 'react'
-
-function Login() {
-  return (
-    <div>
-      
-    </div>
-  )
-}
-
-export default Login
-
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../css/Login.css";
@@ -86,4 +74,3 @@ function Login() {
 }
 
 export default Login;
-
