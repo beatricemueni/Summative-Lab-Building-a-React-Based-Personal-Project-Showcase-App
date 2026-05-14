@@ -2,12 +2,21 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 const links = [
+
   { label: 'Home', to: '/' },
   { label: 'Products', to: '/products' },
   { label: 'Add Product', to: '/addproduct' },
   { label: 'About', to: '/about' },
   { label: 'Login', to: '/login' },
 ]
+
+  { label: "Home",     href: "/" },
+  { label: "About",    href: "/about" },
+  { label: "Services", href: "/services" },
+  { label: "Contact",  href: "/contact" },
+  { label: "Login",    href: "/login" },
+];
+
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
