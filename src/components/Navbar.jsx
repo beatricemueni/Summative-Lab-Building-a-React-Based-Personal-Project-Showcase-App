@@ -1,62 +1,43 @@
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React from "react";
+import "../css/navbar.css";
+import { NavLink } from "react-router-dom";
+import { X, Menu } from "lucide-react";
+import { useState } from "react";
 
-const links = [
-  { label: 'Home', to: '/' },
-  { label: 'Products', to: '/products' },
-  { label: 'Add Product', to: '/addproduct' },
-  { label: 'About', to: '/about' },
-  { label: 'Login', to: '/login' },
-]
-
-export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false)
-
+function Navbar() {
+  const [isOpen, setisOpen] = useState(false);
+  const toggleNavbar = () => {
+    setisOpen(!isOpen);
+  };
   return (
-    <nav className="bg-white border-b border-gray-200">
-      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-        <Link to="/" className="text-lg font-semibold tracking-tight text-gray-900">
-          MyBrand
-        </Link>
-
-        <ul className="hidden md:flex items-center gap-1">
-          {links.map((link) => (
-            <li key={link.label}>
-              <Link
-                to={link.to}
-                className="px-3 py-1.5 rounded-md text-sm text-gray-500 hover:bg-gray-100 hover:text-gray-900 transition-colors"
-              >
-                {link.label}
-              </Link>
-            </li>
-          ))}
+    <>
+      <nav
+        className="w-3/4 flex justify-end "
+        style={{ "margin-right": "30px;" }}
+      >
+        <ul className=" hidden justify-around md:flex w-full ">
+          <NavLink to="/">Home</NavLink>
+          <NavLink to="/about">About</NavLink>
+          <NavLink to="/login">Login</NavLink>
+          <NavLink to="/addprodcut">Add Product</NavLink>
+          <NavLink to="/products">Products</NavLink>
         </ul>
-
-        <div className="flex items-center gap-2">
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            aria-label="Toggle menu"
-            className="md:hidden border border-gray-200 rounded-md p-1.5 text-gray-500 hover:bg-gray-100 transition-colors"
-          >
-            {isOpen ? '✕' : '☰'}
-          </button>
+        <div className="md:hidden ">
+          <button onClick={toggleNavbar}>{isOpen ? <X /> : <Menu />}</button>
         </div>
-      </div>
-
+      </nav>
       {isOpen && (
-        <ul className="md:hidden border-t border-gray-200 px-4 py-2 flex flex-col gap-1">
-          {links.map((link) => (
-            <li key={link.label}>
-              <Link
-                to={link.to}
-                className="block px-3 py-2 rounded-md text-sm text-gray-500 hover:bg-gray-100 hover:text-gray-900 transition-colors"
-              >
-                {link.label}
-              </Link>
-            </li>
-          ))}
+        <ul className="flex flex-col basis-full items-center gap-5 ">
+          <NavLink to="/">Home</NavLink>
+          <NavLink to="/about">About</NavLink>
+          <NavLink to="/login">Login</NavLink>
+          <NavLink to="/addprodcut">Add Product</NavLink>
+          <NavLink to="/products">Products</NavLink>
+
         </ul>
       )}
-    </nav>
-  )
+    </>
+  );
 }
+
+export default Navbar;
