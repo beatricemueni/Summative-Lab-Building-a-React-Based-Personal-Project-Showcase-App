@@ -1,6 +1,7 @@
 
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Header from "../components/Header";
 import "../css/Login.css";
 
 function Login() {
@@ -12,32 +13,16 @@ function Login() {
 
     if (role === "user") {
       alert("User Login successful!");
-      navigate("/Home"); 
+      navigate("/");
     } else {
       alert("Admin Login successful!");
-      navigate("/add-product"); 
+      navigate("/addproduct");
     }
   };
 
   return (
     <div className="page">
-
-      {/* NAVBAR */}
-      <nav className="navbar">
-        <h1 className="logo">FoodHub</h1>
-
-        <div className="nav-links">
-          <a href="/">Home</a>
-          <a href="/">About</a>
-          <a href="/">Services</a>
-          <a href="/">Contact</a>
-          <a href="/login">Login</a>
-        </div>
-
-        <button className="top-login-btn">
-          Login
-        </button>
-      </nav>
+      <Header />
 
       {/* LOGIN SECTION */}
       <div className="login-wrapper">

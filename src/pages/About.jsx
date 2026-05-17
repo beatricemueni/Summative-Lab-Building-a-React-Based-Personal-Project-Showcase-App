@@ -1,11 +1,14 @@
 About.jsx
 
 import React from 'react';
+import Header from '../components/Header';
 import '../css/About.css';
 
 function About() {
   return (
-    <div className="about-container">
+    <>
+      <Header />
+      <div className="about-container">
       {/* Hero Section */}
       <section className="about-hero">
         <div className="about-hero-content">
@@ -324,6 +327,7 @@ function About() {
         </div>
       </section>
     </div>
+    </>
   );
 }
 

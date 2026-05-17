@@ -1,8 +1,11 @@
 body{
-  background-image: url("../assets/tangerine-newt-RgT22Ixcq4Y-unsplash.jpg") ;
-  background-size: contain;
- 
-  background-position: center;
+  height:100%;
+  background-image: url('../assets/tangerine-newt-RgT22Ixcq4Y-unsplash.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position:left;
+  position:relative;
+  z-index: 0; 
 }
 .container {
   max-width: 600px;

@@ -1,0 +1,266 @@
+/* Reset margins and apply background globally */
+html, body {
+  min-height: 100%;   /* allow page to grow */
+  margin: 0;
+  padding: 0;
+}
+
+body, .product-page {
+  min-height: 100%;
+  position: relative;
+  z-index: 0;
+  overflow: auto;     /* enable scrolling */
+}
+
+/* Blur background using pseudo-element */
+body::before, .product-page::before {
+  content: "";
+  position: fixed;    /* fixed so it stays while scrolling */
+  top: 0; right: 0; bottom: 0; left: 0;
+  background-image: url('../assets/tangerine-newt-RgT22Ixcq4Y-unsplash.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: left;
+  filter: blur(20px);        /* blur strength */
+  transform: scale(1.05);    /* prevent edge clipping */
+  z-index: -1;               /* keep behind content */
+  opacity: 0.7;              /* fade background */
+}
+
+/* Section wrapper */
+.product-section {
+  flex-grow: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+  background: transparent;
+  position: relative;
+  z-index: 2; /* ensure content sits above blurred bg */
+}
+
+/* Header */
+.product-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+.product-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+}
+.product-subtitle {
+  font-size: 1rem;
+  color: #374151;
+  margin-bottom: 2rem;
+}
+
+/* Search */
+.search-container {
+  max-width: 400px;
+  margin: 0 auto;
+}
+.search-label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+}
+.search-input {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+  color: #111827;
+  background: #fff;
+}
+.search-input::placeholder {
+  color: #9ca3af;
+}
+
+/* Results count */
+.results-count {
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 2rem;
+}
+
+/* Empty state */
+.empty-state {
+  text-align: center;
+  background: rgba(255,255,255,0.9);
+  border: 2px dashed #d1d5db;
+  border-radius: 1rem;
+  padding: 3rem;
+}
+
+/* Grid */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+  justify-items: center;
+}
+
+/* Card */
+.product-card {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  height: 480px;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.product-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+/* Image */
+.product-image {
+  height: 200px;
+  overflow: hidden;
+  background: #f3f4f6;
+}
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Content */
+.product-content {
+  flex: 1;
+  padding: 0.6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Text */
+.product-name {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 0.25rem;
+}
+.product-desc {
+  font-size: 0.75rem;
+  color: #6b7280;
+  margin-bottom: 0.4rem;
+}
+
+/* Details */
+.product-details {
+  font-size: 0.75rem;
+  margin-bottom: 0.4rem;
+}
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.2rem;
+}
+.detail-label {
+  font-size: 0.7rem;
+  color: #374151;
+  font-weight: 500;
+}
+.detail-value {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #f97316;
+}
+
+/* Price */
+.product-price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+  margin-bottom: 0.4rem;
+  padding-top: 0.2rem;
+  border-top: 1px solid #e5e7eb;
+}
+.price-label {
+  font-size: 0.7rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+.price-value {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+/* Update price */
+.update-row {
+  display: flex;
+  gap: 0.4rem;
+  margin-bottom: 0.4rem;
+}
+.update-input {
+  flex: 1;
+  padding: 0.3rem 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.4rem;
+  font-size: 0.7rem;
+  color: #111827;
+}
+.update-input:focus {
+  border-color: #f97316;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(249,115,22,0.2);
+}
+
+/* Buttons */
+.btn {
+  border: none;
+  border-radius: 0.4rem;
+  font-weight: 600;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.save-btn {
+  background: #f97316;
+  color: #fff;
+  padding: 0.35rem 0.7rem;
+}
+.save-btn:hover {
+  background: #ea580c;
+}
+.delete-btn {
+  background: #ef4444;
+  color: #fff;
+  padding: 0.45rem;
+  width: 100%;
+}
+.delete-btn:hover {
+  background: #dc2626;
+}
+
+/* Footer */
+footer {
+  background-color: #1f2937; /* same dark tone as header */
+  color: #fff;               /* visible text on dark background */
+  text-align: center;
+  padding: 1.5rem;
+  position: relative;
+  z-index: 2;
+}
+footer a {
+  color: #f97316;            /* orange accent for links */
+  text-decoration: none;
+  font-weight: 600;
+}
+footer a:hover {
+  text-decoration: underline;
+}
