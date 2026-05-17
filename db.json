@@ -10,20 +10,11 @@
       "country": "New York, NY"
     },
     {
-      "id": "2",
-      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQW8Dlyv4p1PzNhw0rxX29O05wwEnkqsseblQ&s",
-      "name": "Commander's Palace",
-      "dsc": "Legendary Seafood Gumbo",
-      "price": 89,
-      "rate": 4,
-      "country": "New Orleans, LA"
-    },
-    {
       "id": "3",
       "img": "https://goldbelly.imgix.net/uploads/merchant/main_image/1148/BurgerMerchantBanner_EDIT-GT.png?ixlib=react-9.10.0&ar=1%3A0.5625&fit=crop&w=3840&auto=format",
       "name": "Gramercy Tavern",
       "dsc": "The Gramercy Tavern Burger - 4 Pack",
-      "price": 99,
+      "price": 100,
       "rate": 4,
       "country": "New York, NY"
     },
