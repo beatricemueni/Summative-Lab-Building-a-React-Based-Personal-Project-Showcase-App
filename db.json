@@ -10,20 +10,11 @@
       "country": "New York, NY"
     },
     {
-      "id": "2",
-      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQW8Dlyv4p1PzNhw0rxX29O05wwEnkqsseblQ&s",
-      "name": "Commander's Palace",
-      "dsc": "Legendary Seafood Gumbo",
-      "price": 89,
-      "rate": 4,
-      "country": "New Orleans, LA"
-    },
-    {
       "id": "3",
       "img": "https://goldbelly.imgix.net/uploads/merchant/main_image/1148/BurgerMerchantBanner_EDIT-GT.png?ixlib=react-9.10.0&ar=1%3A0.5625&fit=crop&w=3840&auto=format",
       "name": "Gramercy Tavern",
       "dsc": "The Gramercy Tavern Burger - 4 Pack",
-      "price": 99,
+      "price": 100,
       "rate": 4,
       "country": "New York, NY"
     },
@@ -62,6 +53,34 @@
       "price": 99,
       "rate": 5,
       "country": "Harlem, NY"
+    },
+    {
+      "name": "VICTOR KIPNGENO",
+      "dsc": "Added new product in the market ",
+      "price": 49,
+      "rate": 4,
+      "country": "Kenya",
+      "img": "https://foreignfork.com/wp-content/uploads/2023/08/Nyama-Choma-17.jpg",
+      "id": "E8WgU3T_bsY"
+    },
+    {
+      "name": "Maize",
+      "dsc": "new product in the market ",
+      "price": 100,
+      "rate": 5,
+      "country": "Uganda",
+      "img": "https://images.pexels.com/photos/32506154/pexels-photo-32506154/free-photo-of-harvested-maize-in-burlap-sacks.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+      "id": "HrRzTe5CI9M"
+    },
+    {
+      "name": "Nyama Choma",
+      "dsc": "Best roasted meat in kenya",
+      "price": 450,
+      "rate": 4,
+      "country": "Kenya",
+      "img": "https://foreignfork.com/wp-content/uploads/2023/08/Nyama-Choma-17.jpg",
+      "id": "Gydr0noYReo"
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
