@@ -1,11 +1,18 @@
+
 import { useEffect, useState } from 'react'
 import Header from '../components/Header'
+import { useAuth } from '../context/AuthContext'
+import { useCart } from '../context/CartContext'
+import { ShoppingCart, Trash2 } from 'lucide-react'
 import '../css/ProductList.css'
 
 function ProductList() {
   const [products, setProducts] = useState([])
   const [searchTerm, setSearchTerm] = useState('')
   const [priceEdits, setPriceEdits] = useState({})
+  const [addedMessage, setAddedMessage] = useState({})
+  const { isAdmin } = useAuth()
+  const { addToCart } = useCart()
 
   // Fetch products from backend
   useEffect(() => {
@@ -70,9 +77,17 @@ function ProductList() {
     }
   }
 
+  // Handle add to cart
+  const handleAddToCart = (product) => {
+    addToCart(product, 1)
+    setAddedMessage((prev) => ({ ...prev, [product.id]: true }))
+    setTimeout(() => {
+      setAddedMessage((prev) => ({ ...prev, [product.id]: false }))
+    }, 2000)
+  }
+
   return (
     <main className="product-page">
-      
       <Header />
       <section className="product-section">
         {/* Header Section */}
@@ -134,38 +149,59 @@ function ProductList() {
 
                   <div className="product-price">
                     <span className="price-label">Price</span>
-                    <span className="price-value">${product.price}</span>
+                    <span className="price-value">Ksh {product.price}</span>
                   </div>
 
-                  <div className="update-price">
-                    <label className="update-label">💰 Update Price</label>
-                    <div className="update-row">
-                      <input
-                        type="number"
-                        min="1"
-                        value={priceEdits[product.id] ?? product.price}
-                        onChange={(event) =>
-                          handlePriceChange(product.id, event.target.value)
-                        }
-                        className="update-input"
-                      />
-                      <button
-                        type="button"
-                        onClick={() => handleSavePrice(product.id)}
-                        className="btn save-btn"
-                      >
-                        Save
-                      </button>
+                  {/* ADD TO CART - visible for all users */}
+                  <div className="add-to-cart-section">
+                    <button
+                      type="button"
+                      onClick={() => handleAddToCart(product)}
+                      className={`btn add-to-cart-btn ${
+                        addedMessage[product.id] ? 'added' : ''
+                      }`}
+                    >
+                      <ShoppingCart size={18} />
+                      {addedMessage[product.id] ? 'Added ✓' : 'Add to Cart'}
+                    </button>
+                  </div>
+
+                  {/* ADMIN ONLY - Update Price */}
+                  {isAdmin && (
+                    <div className="update-price">
+                      <label className="update-label">💰 Update Price</label>
+                      <div className="update-row">
+                        <input
+                          type="number"
+                          min="1"
+                          value={priceEdits[product.id] ?? product.price}
+                          onChange={(event) =>
+                            handlePriceChange(product.id, event.target.value)
+                          }
+                          className="update-input"
+                        />
+                        <button
+                          type="button"
+                          onClick={() => handleSavePrice(product.id)}
+                          className="btn save-btn"
+                        >
+                          Save
+                        </button>
+                      </div>
                     </div>
-                  </div>
+                  )}
 
-                  <button
-                    type="button"
-                    onClick={() => deleteProduct(product.id)}
-                    className="btn delete-btn"
-                  >
-                    Delete Product
-                  </button>
+                  {/* ADMIN ONLY - Delete Product */}
+                  {isAdmin && (
+                    <button
+                      type="button"
+                      onClick={() => deleteProduct(product.id)}
+                      className="btn delete-btn"
+                    >
+                      <Trash2 size={18} />
+                      Delete Product
+                    </button>
+                  )}
                 </div>
               </article>
             ))}
